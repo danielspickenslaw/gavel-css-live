@@ -1,0 +1,353 @@
+```css
+/* ==========================================================
+   PROBATE INTAKE — Dark Glass Professional Theme (Gavel/Docassemble)
+   Drop-in CSS that "changes things" + fixes hidden text/pills.
+   ========================================================== */
+
+/* --- Theme tokens --- */
+:root{
+  --bg1:#0b1220;
+  --bg2:#111b33;
+
+  --text:#e6eaf2;
+  --muted:#a7b0c2;
+
+  --line:rgba(255,255,255,.10);
+  --shadow2: 0 10px 25px rgba(0,0,0,.35);
+  --radius:16px;
+
+  --brand1:#7c3aed;   /* purple */
+  --brand2:#06b6d4;   /* cyan */
+  --warn:#f59e0b;
+
+  --focus: 0 0 0 4px rgba(6,182,212,.25);
+
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+/* --- Page backdrop --- */
+html, body{
+  font-family: var(--font) !important;
+  background:
+    radial-gradient(1200px 900px at 15% 0%, rgba(124,58,237,.22), transparent 60%),
+    radial-gradient(1100px 900px at 85% 10%, rgba(6,182,212,.18), transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg2)) !important;
+  color: var(--text) !important;
+}
+
+/* Defensive: don’t allow upstream opacity to make text “disappear” */
+*{
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body, p, span, div, label, legend, h1, h2, h3, h4{
+  color: var(--text) !important;
+}
+
+/* Center + constrain form width */
+form{
+  max-width: 980px;
+  margin: 28px auto !important;
+  padding: 22px !important;
+}
+
+/* --- Card layout (sections/steps/panels + Docassemble wrappers) --- */
+fieldset,
+section,
+.form-section,
+.panel,
+.card,
+[class*="section"],
+[class*="Step"],
+[class*="step"],
+[class*="Panel"],
+[class*="panel"],
+.da-question,
+.da-fieldset,
+.da-field-container{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--shadow2) !important;
+  padding: 18px 18px 14px !important;
+  margin: 14px 0 !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Headings */
+h1, h2, h3, h4, legend{
+  color: var(--text) !important;
+  letter-spacing: .2px;
+}
+h1{
+  font-size: clamp(26px, 2.6vw, 34px) !important;
+  margin: 6px 0 12px !important;
+}
+h2, legend{
+  font-size: 18px !important;
+  margin: 4px 0 10px !important;
+}
+
+/* Help text */
+small,
+.help,
+.helptext,
+.helper,
+.description,
+[class*="help"],
+[class*="Help"],
+[class*="desc"],
+[class*="Desc"]{
+  color: var(--muted) !important;
+  line-height: 1.35;
+}
+
+/* Labels */
+label{
+  display:block;
+  font-weight: 650 !important;
+  color: var(--text) !important;
+  margin: 12px 0 6px !important;
+  font-size: 13.5px !important;
+}
+label .required,
+label [aria-hidden="true"]{
+  color: var(--warn) !important;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="search"],
+input[type="url"],
+input[type="password"],
+textarea,
+select,
+.form-control,
+.input,
+[class*="input"],
+[class*="Input"]{
+  width: 100% !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)) !important;
+  color: var(--text) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 12px !important;
+  padding: 12px 12px !important;
+  min-height: 44px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  transition: transform .08s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+textarea{
+  min-height: 110px !important;
+  resize: vertical;
+}
+select{
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(230,234,242,.9) 50%),
+    linear-gradient(135deg, rgba(230,234,242,.9) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 2px),
+    calc(100% - 12px) calc(50% - 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 36px !important;
+}
+::placeholder{
+  color: rgba(167,176,194,.75) !important;
+}
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus{
+  outline: none !important;
+  border-color: rgba(6,182,212,.55) !important;
+  box-shadow: var(--focus), inset 0 1px 0 rgba(255,255,255,.06) !important;
+  background: linear-gradient(180deg, rgba(6,182,212,.08), rgba(255,255,255,.03)) !important;
+}
+
+/* Checkboxes / radios */
+input[type="checkbox"],
+input[type="radio"]{
+  accent-color: var(--brand2);
+  transform: translateY(1px);
+}
+
+/* Buttons */
+button,
+input[type="submit"],
+input[type="button"],
+.btn,
+[class*="btn"],
+[class*="Button"],
+[class*="button"]{
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 12px 16px !important;
+  min-height: 44px;
+  font-weight: 750 !important;
+  letter-spacing: .2px;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .18s ease, filter .18s ease;
+}
+button[type="submit"],
+input[type="submit"],
+.btn-primary,
+[class*="primary"]{
+  background: linear-gradient(135deg, var(--brand1), var(--brand2)) !important;
+  color: #08101f !important;
+  box-shadow: 0 14px 35px rgba(124,58,237,.24), 0 10px 25px rgba(6,182,212,.18) !important;
+}
+button:hover,
+input[type="submit"]:hover,
+.btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+button:active,
+input[type="submit"]:active,
+.btn:active{
+  transform: translateY(0px);
+}
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled{
+  opacity: .55 !important;
+  cursor: not-allowed !important;
+}
+
+/* Progress (best-effort) */
+progress,
+.progress,
+[class*="progress"],
+[class*="Progress"]{
+  width: 100% !important;
+  height: 10px !important;
+  border-radius: 999px !important;
+  overflow: hidden;
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+}
+progress::-webkit-progress-bar{ background: rgba(255,255,255,.08); }
+progress::-webkit-progress-value{
+  background: linear-gradient(90deg, var(--brand1), var(--brand2));
+  border-radius: 999px;
+}
+progress::-moz-progress-bar{
+  background: linear-gradient(90deg, var(--brand1), var(--brand2));
+}
+
+/* Divider */
+hr{
+  border: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent) !important;
+  margin: 14px 0 !important;
+}
+
+/* =========================================================
+   PATCH: Fix hidden/invisible text in Docassemble/Gavel UI
+   (keeps dark theme; forces choice pills + inputs readable)
+   ========================================================= */
+
+/* 1) Never allow “faded” text on options */
+.list-group-item *,
+label.list-group-item *,
+.btn-group .btn *,
+.btn-group-vertical .btn *{
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* 2) Choice pills (Docassemble usually uses .list-group-item) */
+.list-group-item,
+label.list-group-item{
+  background: rgba(255,255,255,.06) !important;   /* dark glass */
+  color: var(--text) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+  margin: 10px 0 !important;
+}
+.list-group-item * ,
+label.list-group-item *{
+  color: var(--text) !important;
+}
+
+/* Hover */
+.list-group-item:hover,
+label.list-group-item:hover{
+  background: rgba(6,182,212,.10) !important;
+  border-color: rgba(6,182,212,.40) !important;
+}
+
+/* Selected */
+.list-group-item.active,
+label.list-group-item.active,
+.list-group-item:has(input:checked),
+label.list-group-item:has(input:checked){
+  background: rgba(6,182,212,.16) !important;
+  border-color: rgba(6,182,212,.60) !important;
+  box-shadow: 0 0 0 4px rgba(6,182,212,.14) !important;
+}
+
+/* 3) Inputs: ensure typed text is visible */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="search"],
+input[type="url"],
+input[type="password"],
+textarea,
+select{
+  color: var(--text) !important;
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+}
+input::placeholder,
+textarea::placeholder{
+  color: rgba(230,234,242,.65) !important;
+}
+
+/* 4) If choices are rendered as buttons instead of list-group */
+.btn-group .btn,
+.btn-group-vertical .btn{
+  background: rgba(255,255,255,.06) !important;
+  color: var(--text) !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+  margin: 8px 0 !important;
+}
+.btn-group .btn.active,
+.btn-group-vertical .btn.active,
+.btn-group .btn:has(input:checked),
+.btn-group-vertical .btn:has(input:checked){
+  background: rgba(6,182,212,.16) !important;
+  border-color: rgba(6,182,212,.60) !important;
+  box-shadow: 0 0 0 4px rgba(6,182,212,.14) !important;
+}
+
+/* Align controls */
+.list-group-item input[type="radio"],
+.list-group-item input[type="checkbox"],
+label.list-group-item input[type="radio"],
+label.list-group-item input[type="checkbox"]{
+  margin-right: 12px !important;
+}
+
+/* Mobile polish */
+@media (max-width: 700px){
+  form{ padding: 14px !important; margin: 14px auto !important; }
+  fieldset, section, .panel, .card, .da-question, .da-fieldset, .da-field-container{ padding: 14px !important; }
+  h1{ margin-bottom: 10px !important; }
+}
+```
