@@ -351,3 +351,76 @@ label.list-group-item input[type="checkbox"]{
   h1{ margin-bottom: 10px !important; }
 }
 ```
+/* ==========================================================
+   FORCE OVERRIDE: Docassemble loads docassemble_global.css after custom CSS
+   This block re-applies theme inside the main body container.
+   ========================================================== */
+
+body, #dabody, #daquestion, .container, .row, .tab-content, .tab-pane {
+  color: #e6eaf2 !important;
+}
+
+#dabody, #dabody * {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial !important;
+}
+
+/* Background + cards forced inside #dabody */
+#dabody{
+  background:
+    radial-gradient(1200px 900px at 15% 0%, rgba(124,58,237,.22), transparent 60%),
+    radial-gradient(1100px 900px at 85% 10%, rgba(6,182,212,.18), transparent 55%),
+    linear-gradient(180deg, #0b1220, #111b33) !important;
+  min-height: 100vh;
+  padding: 18px 0 !important;
+}
+
+#dabody form{
+  max-width: 980px !important;
+  margin: 28px auto !important;
+  padding: 22px !important;
+}
+
+#dabody fieldset,
+#dabody .da-question,
+#dabody .da-fieldset,
+#dabody .da-field-container,
+#dabody .panel,
+#dabody .card,
+#dabody section{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,.35) !important;
+}
+
+/* Inputs */
+#dabody input[type="text"],
+#dabody input[type="email"],
+#dabody input[type="tel"],
+#dabody input[type="number"],
+#dabody input[type="date"],
+#dabody input[type="time"],
+#dabody input[type="search"],
+#dabody input[type="url"],
+#dabody input[type="password"],
+#dabody textarea,
+#dabody select{
+  background: rgba(255,255,255,.06) !important;
+  color: #e6eaf2 !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 12px !important;
+}
+
+/* Choice list pills */
+#dabody .list-group-item,
+#dabody label.list-group-item{
+  background: rgba(255,255,255,.06) !important;
+  color: #e6eaf2 !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 16px !important;
+}
+#dabody .list-group-item *,
+#dabody label.list-group-item *{
+  color: #e6eaf2 !important;
+  opacity: 1 !important;
+}
